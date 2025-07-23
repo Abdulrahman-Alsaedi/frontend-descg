@@ -19,7 +19,7 @@ export const SignUpForm: React.FC<{ onSignUpSuccess?: () => void }> = ({ onSignU
     setSuccess('');
     try {
       // Replace with your backend API endpoint
-      const response = await fetch('http://localhost:8000/api/register', {
+      const response = await fetch('https://descg.store/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password })

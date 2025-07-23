@@ -28,7 +28,7 @@ export const Dashboard: React.FC = () => {
   const fetchProducts = () => {
     setLoading(true);
     setError(null);
-    fetch('http://localhost:8000/api/products', {
+    fetch('https://descg.store/api/products', {
       headers: getAuthHeaders()
     })
       .then(res => {
@@ -53,13 +53,13 @@ export const Dashboard: React.FC = () => {
       const isExistingProduct = product.id && !product.id.toString().startsWith('temp_');
       
       if (isExistingProduct) {
-        response = await fetch(`http://localhost:8000/api/products/${product.id}`, {
+        response = await fetch(`https://descg.store/api/products/${product.id}`, {
           method: 'PUT',
           headers: getAuthHeaders(),
           body: JSON.stringify(product)
         });
       } else {
-        response = await fetch('http://localhost:8000/api/products', {
+        response = await fetch('https://descg.store/api/products', {
           method: 'POST',
           headers: getAuthHeaders(),
           body: JSON.stringify(product)
@@ -83,7 +83,7 @@ export const Dashboard: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://localhost:8000/api/products/${productId}`, {
+      const response = await fetch(`https://descg.store/api/products/${productId}`, {
         method: 'DELETE',
         headers: getAuthHeaders()
       });
